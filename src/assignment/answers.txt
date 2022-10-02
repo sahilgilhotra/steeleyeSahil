@@ -1,0 +1,28 @@
+1. Explain what the simple List component does.
+Ans:  It is used for displaying the list of items in the items array as single list items.
+
+const exampleList = ['1', '2', '3', '4','5'];
+const TestList = ( ) => (
+  <ul>
+    {exampleList.map(item => {
+      return <li key={item}>{item}</li>;
+    })}
+  </ul>
+);
+
+The list component contains list items.
+A single list item is stored inside WrappedSingleListItem that contains 2 values index and text, 
+a state named isSelected and an onClick event.
+
+
+2. What problems / warnings is there with code ?
+Ans: 
+(a) Error in definition of the useState() : const [setSelectedIndex, selectedIndex] = useState();
+set function would be the 2nd parameter.
+(b) Error in definition of  WrappedListComponent.propTypes - It should be arrayOf instead of shapeOf.
+(c) Definitions of items is null in WrappedListComponent.defaultProps. 
+It will not be mapped otherwise.
+   
+    WrappedListComponent.defaultProps = {
+     items: null,
+        };
